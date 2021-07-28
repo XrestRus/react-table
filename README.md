@@ -9,6 +9,6 @@
 
     4.1) Указать лимит
 
-    4.2) Указать url к серверу
+    4.2) Указать url к серверу (Пример: http://localhost/php-fake-server)
 
 5) Запустить -> <code>npm run start</code>
