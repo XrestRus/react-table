@@ -12,3 +12,5 @@
     4.2) Указать url к серверу (Пример: http://localhost/php-fake-server)
 
 5) Запустить -> <code>npm run start</code>
+
+# Связан с [php-fake-server](https://github.com/XrestRus/php-fake-server)
