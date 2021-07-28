@@ -1,8 +1,12 @@
 # Работа - 'React-Table'
 
 # Установка:
-    - Скачать
-    - Настроить [config.js](https://github.com/XrestRus/react-table/src/config.js)
-        - Указать лимит
-        - Указать url к серверу
-    - Запустить -> <code>npm run start</code>
+1) Скачать
+
+2) Настроить [config.js](https://github.com/XrestRus/react-table/src/config.js)
+
+    2.1) Указать лимит
+
+    2.2) Указать url к серверу
+
+5) Запустить -> <code>npm run start</code>
