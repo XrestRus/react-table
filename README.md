@@ -1,8 +1,16 @@
 # Работа - 'React-Table'
 
 # Установка:
-    - Скачать
-    - Настроить [config.js](https://github.com/XrestRus/react-table/src/config.js)
-        - Указать лимит
-        - Указать url к серверу
-    - Запустить -> <code>npm run start</code>
+1) Скачать
+
+3) Установить -> <code>npm i</code>
+ 
+4) Настроить [config.js](https://github.com/XrestRus/react-table/src/config.js)
+
+    4.1) Указать лимит
+
+    4.2) Указать url к серверу (Пример: http://localhost/php-fake-server)
+
+5) Запустить -> <code>npm run start</code>
+
+# Связан с [php-fake-server](https://github.com/XrestRus/php-fake-server)
