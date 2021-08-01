@@ -39,6 +39,14 @@ function mainReducer(state, action) {
 					condition: action.payload.condition,
 					value: action.payload.value,
 					sql: sql,
+				},
+                paginateState: {
+					count: 0,
+					next: 1,
+					current: 0,
+					prev: 0,
+					limit: LIMIT,
+					sql: `paginate=[0,${LIMIT}]&`
 				}
 			}
 		case 'sort':

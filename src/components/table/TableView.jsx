@@ -1,11 +1,13 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Context} from "../Context";
 import {columnsTypes, filteredColumnsType} from "../../types/columnsTypes";
 import {URLServer} from "../../config";
+import {Loader} from "../Loader";
 
 export function TableView() {
 	const [state, dispatch] = React.useContext(Context);
-	
+	const [isLoad, setLoad] = useState(false);
+
 	const orderBy = (item) => {
 		dispatch({
 			type: 'sort',
@@ -19,14 +21,17 @@ export function TableView() {
 	}
 	
 	useEffect(() => {
+        
 		updateData(state)
-			.catch(i => console.log(i));
 		
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [state.filterState, state.paginateState.current, state.sortState]);
 
 	async function updateData(state) {
+        setLoad(true);
+
 		const response = await fetch(`${URLServer}${state.filterState.sql}${state.sortState.sql}${state.paginateState.sql}`);
+		
 		const result = await response.json();
 
 		dispatch({
@@ -36,6 +41,8 @@ export function TableView() {
 				paginate: result.paginate
 			}
 		});
+
+        setLoad(false);
 	}
 	
 	return (
@@ -58,15 +65,21 @@ export function TableView() {
 						}
 					</tr>
 				</thead>
-				<tbody>
-					{state.dataState.map((i, key) =>
+				<tbody>                
+					{!isLoad ? state.dataState.map((i, key) =>
 						<tr key={key}>
 							<td>{i.date}</td>
 							<td>{i.title}</td>
 							<td>{i.count}</td>
 							<td>{i.distance}</td>
 						</tr>
-					)}
+					) : (
+                        <tr>
+                            <td colSpan='4'>
+                                <Loader />
+                            </td>
+                        </tr>
+                    )}
 				</tbody>
 			</table>
 		</div>

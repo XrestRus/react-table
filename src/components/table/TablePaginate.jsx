@@ -7,8 +7,9 @@ export function TablePaginate() {
 	
 	const createLinks = () => {
 		const links = [];
-		
-		for (let i = 0; i <= diff(); i++) {
+		let count = diff() <= 0 ? 0 : diff();
+				
+		for (let i = 0; i <= count; i++) {
 			links.push(i);
 		}
 
@@ -40,7 +41,7 @@ export function TablePaginate() {
 	return(
 		<nav>
 			<ul className="pagination justify-content-center">
-				<li className={state.paginateState.current === 0 ? 'page-item disabled' : 'page-item'}>
+				<li className={state.paginateState.current <= 0 ? 'page-item disabled' : 'page-item'}>
 					<span
 						className="page-link"
 						onClick={_ => transition(state.paginateState.current - 1)}
@@ -65,7 +66,7 @@ export function TablePaginate() {
 					)
 				}
 				
-				<li className={state.paginateState.current === diff() ? 'page-item disabled' : 'page-item'}>
+				<li className={state.paginateState.current >= diff() ? 'page-item disabled' : 'page-item'}>
 					<span
 						className="page-link"
 						onClick={_ => transition(state.paginateState.current + 1)}
