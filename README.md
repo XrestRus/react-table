@@ -14,3 +14,6 @@
 5) Запустить -> <code>npm run start</code>
 
 # Связан с [php-fake-server](https://github.com/XrestRus/php-fake-server)
+
+
+# [Демо](https://xrestrus.github.io/react-table/)
